@@ -73,10 +73,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputF_01"
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:hint="hint"
-                android:layout_marginBottom="10dp"
+                android:hint=""
+                android:gravity="center"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@id/colon01"
                 app:layout_constraintTop_toBottomOf="@+id/enterratio"
@@ -101,12 +101,28 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputF_02"
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:hint="hint"
+                android:hint=""
+                android:gravity="center"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/colon01"
                 app:layout_constraintTop_toBottomOf="@+id/enterratio"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintHorizontal_bias="0.5"/>
+
+            <TextView
+                android:id="@+id/ratiofraction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="0.0"
+                android:layout_marginBottom="12dp"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toRightOf="@+id/inputF_01"
+                app:layout_constraintTop_toBottomOf="@+id/colon01"
+                app:layout_constraintRight_toLeftOf="@id/inputF_02"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintVertical_bias="0"
                 app:layout_constraintHorizontal_bias="0.5"/>
@@ -142,9 +158,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputF_03"
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:hint="hint"
+                android:hint=""
+                android:gravity="center"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@id/colon02"
@@ -170,9 +187,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputF_04"
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:hint="hint"
+                android:hint=""
+                android:gravity="center"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/colon02"
                 app:layout_constraintTop_toBottomOf="@+id/applyratio"
