@@ -12,6 +12,7 @@
         <item name="colorBackgroundFloating">@color/dark_deletebutton</item>
         <item name="android:windowBackground">@color/darkwindow_background</item>
         <item name="android:textColorHint">@color/dark_textHintcolor</item>
+        <item name="android:textColorHintInverse">@color/dark_textHintcolor</item>
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
 
