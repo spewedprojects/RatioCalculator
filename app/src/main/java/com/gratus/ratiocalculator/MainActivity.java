@@ -1,16 +1,10 @@
 package com.gratus.ratiocalculator;
 
-import static androidx.constraintlayout.widget.ConstraintProperties.WRAP_CONTENT;
-
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -19,14 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.DecimalFormat;
@@ -112,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             g2.setVisibility(visibleParts > 3 ? View.VISIBLE : View.GONE);
         }
 
-        // rowsContainer already found earlier
+        // rowsContainer already found earlier - textwatcher
         for (int r = 0; r < rowsContainer.getChildCount(); r++) {
             View row = rowsContainer.getChildAt(r);
 
@@ -125,9 +116,15 @@ public class MainActivity extends AppCompatActivity {
                     @Override public void beforeTextChanged(CharSequence s, int st, int c, int a) {}
                     @Override public void onTextChanged(CharSequence s, int st, int b, int c) {}
                     @Override public void afterTextChanged(Editable s) {
-                        if (isUpdating || s.length() == 0) return;
+                        if (isUpdating) return;          // only guard against re-entrant calls
+
                         isUpdating = true;
-                        propagateRowFromField(row, typedCol);
+
+                        if (s.length() == 0) {
+                            clearRow(row);                       // NEW  ➜ blank all columns
+                        } else {
+                            propagateRowFromField(row, typedCol); // existing math
+                        }
                         isUpdating = false;
                     }
                 });
@@ -260,6 +257,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void clearRow(View row) {
+        for (int i = 0; i < visibleParts; i++) {
+            TextInputEditText f = row.findViewById(FIELD_IDS[i]);
+            if (f != null) f.setText("");
+        }
+    }
 
     // Clear all input and output fields
     private void clearAllFields() {

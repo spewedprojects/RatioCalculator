@@ -10,8 +10,8 @@ android {
         applicationId = "com.gratus.ratiocalculator"
         minSdk = 24
         targetSdk = 35
-        versionCode = 5
-        versionName = "3.0.b"
+        versionCode = 6
+        versionName = "3.0.c"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
