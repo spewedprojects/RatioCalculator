@@ -10,8 +10,8 @@ android {
         applicationId = "com.gratus.ratiocalculator"
         minSdk = 24
         targetSdk = 35
-        versionCode = 3
-        versionName = "2.0.a"
+        versionCode = 4
+        versionName = "3.0.a"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -25,6 +25,13 @@ android {
             )
         }
     }
+
+    buildFeatures{compose = true}
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "2.2.0"
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -40,4 +47,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.material3)      // or material2
+    implementation(libs.compose.theme.adapter)
 }
