@@ -2,7 +2,7 @@
 
 ***
 
-# (v3.0.a) 17/06/2025
+# (v3.0.b) 17/06/2025
 ### Ratio calculation logic enhanced and UI improved.
 - __Fully functional.__
 - Implemented ~~dynamic~~ ratio part adjustment (2, 3, or 4 parts).
@@ -17,4 +17,4 @@
 - **App can be considered complete.** Another update would only be pertaining to app colors - matching with app icon.
 
 ### Known Issues
-- None so far.
+- Clearing the fields using backspace shows erratic behaviour.
