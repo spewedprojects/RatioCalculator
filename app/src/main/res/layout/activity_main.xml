@@ -12,7 +12,7 @@
         android:id="@+id/materialToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="?attr/colorPrimaryVariant"
         android:theme="?attr/actionBarTheme"
         app:title="Ratio Calculator"
         app:titleTextColor="?attr/colorOnPrimary"

@@ -3,6 +3,8 @@ package com.gratus.ratiocalculator;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -11,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
@@ -46,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
     // list of rows, each carries its own RR_g_1 & RR_g_2
     private final List<Group[]> rowGroups = new ArrayList<>();
+
+    private boolean doubleBackToExitPressedOnce = false;
+    private final Handler backPressHandler = new Handler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -290,6 +297,19 @@ public class MainActivity extends AppCompatActivity {
                 field.setText("");
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            //       ^^^^^^^^^^^^^^^^^^^^ ── pressed twice in Main, OR
+            //                                 we're on a child screen ➜ just finish
+            super.onBackPressed();
+            return;
+        }
+        doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Press BACK again to exit", Toast.LENGTH_SHORT).show();
+        backPressHandler.postDelayed(() -> doubleBackToExitPressedOnce = false, 2000);
     }
 
 }
