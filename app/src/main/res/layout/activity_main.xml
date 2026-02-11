@@ -5,22 +5,21 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="?attr/colorSurface">
+    android:background="?attr/colorSurface"
+    tools:context=".MainActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimaryVariant"
-        android:theme="?attr/actionBarTheme"
-        app:title="Ratio Calculator"
-        app:titleTextColor="?attr/colorOnPrimary"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0">
+        app:layout_constraintVertical_bias="0"
+        app:title="Ratio Calculator"
+        app:titleTextAppearance="@style/CustomToolbarTitleText"
+        app:titleTextColor="?attr/colorOnPrimary">
 
         <ImageButton
             android:id="@+id/ratios_add"
@@ -28,10 +27,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="10dp"
-            app:srcCompat="@drawable/ratio_add"
+            android:alpha="0.8"
             android:background="@drawable/rounded_corners"
             android:padding="8dp"
-            android:alpha="0.8"/>
+            app:srcCompat="@drawable/ratio_add" />
 
         <ImageButton
             android:id="@+id/ratios_subtract"
@@ -39,10 +38,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="10dp"
-            app:srcCompat="@drawable/ratio_subtract"
+            android:alpha="0.8"
             android:background="@drawable/rounded_corners"
             android:padding="8dp"
-            android:alpha="0.8"/>
+            app:srcCompat="@drawable/ratio_subtract" />
 
         <ImageButton
             android:id="@+id/clearButton"
@@ -50,10 +49,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="10dp"
-            app:srcCompat="@drawable/clear_all"
+            android:alpha="0.8"
             android:background="@drawable/rounded_corners"
             android:padding="8dp"
-            android:alpha="0.8"/>
+            app:srcCompat="@drawable/clear_all" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -61,17 +60,18 @@
         android:id="@+id/inputspace"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="16dp"
         android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/materialToolbar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintVertical_bias="0">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/enterratio_card_const"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/enterratio"
                 android:layout_width="wrap_content"
@@ -79,30 +79,31 @@
                 android:layout_margin="16dp"
                 android:paddingBottom="1dp"
                 android:text="Enter your ratio:"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toTopOf="@id/enterratio_const"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0"
-                app:layout_constraintHorizontal_bias="0"/>
+                app:layout_constraintVertical_bias="0" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/enterratio_const"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/enterratio"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/enterratio">
 
                 <!-- Default 2 ratio input -->
                 <include
                     android:id="@+id/col_layout"
                     layout="@layout/col_ratio_pair"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -112,27 +113,30 @@
         android:id="@+id/outputspace"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="16dp"
         android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inputspace"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/applyratio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:text="Apply your ratio:"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0"
-                app:layout_constraintHorizontal_bias="0"/>
+                app:layout_constraintVertical_bias="0" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/outputratio_const"
@@ -140,53 +144,57 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/applyratio">
+
                 <LinearLayout
                     android:id="@+id/rows_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:divider="?android:attr/dividerVertical"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent">
-                        <!-- 1st row -->
-                        <include
-                            android:id="@+id/row_layout1"
-                            layout="@layout/row_ratio_pair"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            tools:ignore="DuplicateIds"/>
-                        <include
-                            android:id="@+id/row_layout2"
-                            layout="@layout/row_ratio_pair"
-                            app:layout_constraintTop_toBottomOf="@id/row_layout1"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            tools:ignore="DuplicateIds"/>
-                        <include
-                            android:id="@+id/row_layout3"
-                            layout="@layout/row_ratio_pair"
-                            app:layout_constraintTop_toBottomOf="@id/row_layout2"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            tools:ignore="DuplicateIds"/>
-                        <include
-                            android:id="@+id/row_layout4"
-                            layout="@layout/row_ratio_pair"
-                            app:layout_constraintTop_toBottomOf="@id/row_layout3"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            tools:ignore="DuplicateIds"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <!-- 1st row -->
+                    <include
+                        android:id="@+id/row_layout1"
+                        layout="@layout/row_ratio_pair"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="DuplicateIds" />
+
+                    <include
+                        android:id="@+id/row_layout2"
+                        layout="@layout/row_ratio_pair"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/row_layout1"
+                        tools:ignore="DuplicateIds" />
+
+                    <include
+                        android:id="@+id/row_layout3"
+                        layout="@layout/row_ratio_pair"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/row_layout2"
+                        tools:ignore="DuplicateIds" />
+
+                    <include
+                        android:id="@+id/row_layout4"
+                        layout="@layout/row_ratio_pair"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/row_layout3"
+                        tools:ignore="DuplicateIds" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -199,16 +207,14 @@
         android:layout_height="65dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
-        android:padding="13dp"
-        app:srcCompat="@drawable/github_mark"
-        android:contentDescription="GitHub Link"
         android:clickable="true"
+        android:contentDescription="GitHub Link"
         android:focusable="true"
         android:longClickable="true"
-        app:layout_constraintTop_toBottomOf="@id/outputspace"
+        android:padding="13dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="1"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/github_mark" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,7 @@
 
 ***
 
-# (v3.0.d) 25/06/2025
+# (v4.0.0) 11/02/2026
 ### Ratio calculation logic enhanced and UI improved.
 - __Fully functional.__
 - Implemented ~~dynamic~~ ratio part adjustment (2, 3, or 4 parts).
